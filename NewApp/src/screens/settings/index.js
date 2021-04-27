@@ -1,20 +1,48 @@
-import React from 'react'
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
-import Test from './Test'
+import React, { useState } from 'react'
+import { StyleSheet, Text, View, TouchableOpacity, Image, Switch, Appearance } from 'react-native'
 import { connect } from 'react-redux';
 import * as actions from '../../redux/actions'
-const index = (props) => {
-    const click = () => {
-        console.log("-------this:", props)
-        props.setLanguage('600')
-    }
+import HeaderCus from '../../components/HeaderCus'
+import colors from '../../styles/colors';
+import images from '../../assets';
+import { useTheme } from '@react-navigation/native';
+const index = () => {
+    const data = [
+        {
+            id: 0,
+            name: 'Ngôn ngữ',
+            image: images.language
+        },
+        {
+            id: 1,
+            name: 'Font chữ',
+            image: images.icFont
+        },
+        {
+            id: 2,
+            name: 'Chủ đề',
+            image: images.color
+        }
+    ]
+
+
     return (
         <View style={styles.container}>
-            <Test />
-            <Text>Setting</Text>
-            <TouchableOpacity onPress={click} style={{ backgroundColor: 'blue', width: 50, height: 50 }}>
-                <Text>Click</Text>
-            </TouchableOpacity>
+            <HeaderCus />
+            <View style={styles.content}>
+                {data.map((value, index) => {
+                    return (
+                        <View key={index}>
+                            <TouchableOpacity style={[styles.button, { backgroundColor: colors.card }]}>
+                                <Image source={value.image} style={{ width: 20, height: 20, marginRight: 5 }} />
+                                <Text style={[styles.Text, { color: colors.text }]}>{value.name}</Text>
+                                <Image source={images.icNext} style={{ width: 10, height: 10, }} />
+                            </TouchableOpacity>
+                            <View style={styles.line}></View>
+                        </View>
+                    )
+                })}
+            </View>
         </View>
     )
 }
@@ -28,6 +56,33 @@ export default connect(mapStateToProps, actions, null, { forwardRef: true })(ind
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1, alignItems: 'center', justifyContent: 'center'
+        flex: 1,
+    },
+    content: {
+    },
+    button: {
+        height: 45,
+        alignSelf: 'center',
+        borderRadius: 5,
+        alignItems: 'center',
+        paddingHorizontal: 15,
+        flexDirection: 'row',
+    },
+    Brightness: {
+        backgroundColor: 'white',
+        height: 45,
+        width: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'row',
+        paddingHorizontal: 15,
+    },
+    Text: {
+        color: colors.colorText,
+        flex: 1
+    },
+    line: {
+        width: '90%', height: 1, backgroundColor: '#D8D8D8', alignSelf: 'flex-end'
     }
+
 })

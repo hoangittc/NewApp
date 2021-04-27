@@ -1,14 +1,10 @@
 
 import React from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
-  ScrollView,
-  View,
-  Text,
   StatusBar,
 } from 'react-native';
-import AppContent from './src/routers'
+import AppStack from './src/routers/AppStack'
 import { Provider } from 'react-redux';
 import { store, persistor } from './src/redux/store'
 import { PersistGate } from 'redux-persist/integration/react';
@@ -18,7 +14,7 @@ const App: () => React$Node = () => {
     <Provider store={store}>
       <PersistGate persistor={persistor} loading={null}>
         <StatusBar barStyle="dark-content" />
-        <AppContent />
+        <AppStack />
       </PersistGate>
     </Provider >
   );
