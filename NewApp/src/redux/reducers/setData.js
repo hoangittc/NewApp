@@ -1,12 +1,12 @@
 
 import {
-    SETLANGUAGE,
+    SETCOLOR,
 } from '../actions/type';
 const initialState = {};
 
-function setLanguage(state = initialState, action) {
+function setColor(state = initialState, action) {
     switch (action.type) {
-        case SETLANGUAGE:
+        case SETCOLOR:
             return action.data;
         default:
             return state;
@@ -14,5 +14,5 @@ function setLanguage(state = initialState, action) {
 }
 
 export {
-    setLanguage,
+    setColor,
 };

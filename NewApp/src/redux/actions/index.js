@@ -1,8 +1,8 @@
 import * as Types from './type';
 
-export const setDataTest = val => ({
-    type: Types.TEST, data: val
-});
+// export const setDataTest = val => ({
+//     type: Types.TEST, data: val
+// });
 
 export const resetStore = () => {
     return {
@@ -10,8 +10,8 @@ export const resetStore = () => {
     }
 }
 
-export const setLanguage = val => ({
-    type: Types.SETLANGUAGE, data: val
+export const setColor = val => ({
+    type: Types.SETCOLOR, data: val
 });
 
 

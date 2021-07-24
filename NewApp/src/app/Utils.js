@@ -26,6 +26,11 @@ async function replace(routeName, params = {}) {
     }
 }
 
+function goback(nthis, routeName = '') {
+    _navigator.dispatch(NavigationActions.back());
+
+}
+
 export default {
-    setTopLevelNavigator, goscreen, replace
+    setTopLevelNavigator, goscreen, replace, goback
 }

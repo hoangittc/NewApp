@@ -2,6 +2,7 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
 import StackRoot from './StackRoot'
+import Modal_Color from '../screens/modal/modal_color'
 const MainApp = createStackNavigator();
 
 export default function App() {
@@ -33,6 +34,7 @@ export default function App() {
         >
             <MainApp.Screen name={'Root'} component={StackRoot} />
             {/* Modals call is here */}
+            <MainApp.Screen name={'Modal_Color'} component={Modal_Color} />
         </MainApp.Navigator>
     );
 }

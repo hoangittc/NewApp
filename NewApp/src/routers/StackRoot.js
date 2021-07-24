@@ -39,7 +39,7 @@ export default function App() {
             <StackRoot.Screen name={'RootScreen'} component={RootScreen} />
             {/* Tabbar */}
             <StackRoot.Screen name={'TabMain'} component={TabMain} />
-            <StackRoot.Screen name={'Home'} component={Home} />
+            {/* <StackRoot.Screen name={'Home'} component={Home} /> */}
         </StackRoot.Navigator>
     );
 }
